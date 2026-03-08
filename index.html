@@ -3,34 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Matching Game</title>
+    <title>Kids Memory Game</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        #game-board { display: grid; grid-template-columns: repeat(4, 100px); gap: 10px; }
-        .card { width: 100px; height: 100px; background-color: lightgray; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; }
-        .hidden { background-color: lightblue; }
-        #score { margin-top: 20px; }
+        body {
+            font-family: &#39;Arial&#39;, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            color: #ff6347;
+        }
+        .card {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            background-color: #ffdead;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.1);
+        }
+        .matched {
+            background-color: #98fb98;
+        }
     </style>
 </head>
 <body>
-    <h1>Memory Matching Game</h1>
-    <div id="game-board">
-        <!-- Game cards will go here -->
-    </div>
-    <div id="score">Score: <span id="score-value">0</span></div>
-    <div id="difficulty">
-        <button onclick="setDifficulty('easy')">Easy</button>
-        <button onclick="setDifficulty('medium')">Medium</button>
-        <button onclick="setDifficulty('hard')">Hard</button>
+    <div class="container">
+        <h1>Kids Memory Game</h1>
+        <div id="gameBoard"></div>
     </div>
     <script>
-        // Game logic goes here
-        let score = 0;
-        function setDifficulty(level) {
-            console.log('Difficulty set to', level);
-            // Logic to set the game difficulty
+        const cardsArray = [
+            { name: &#39;cat&#39;, img: &#39;path/to/cat.png&#39; },
+            { name: &#39;dog&#39;, img: &#39;path/to/dog.png&#39; },
+            { name: &#39;fish&#39;, img: &#39;path/to/fish.png&#39; },
+            { name: &#39;bird&#39;, img: &#39;path/to/bird.png&#39; },
+            { name: &#39;horse&#39;, img: &#39;path/to/horse.png&#39; },
+            { name: &#39;lion&#39;, img: &#39;path/to/lion.png&#39; },
+        ];
+
+        const gameBoard = document.getElementById(&#39;gameBoard&#39;);
+        let matchedCards = 0;
+
+        function createBoard() {
+            cardsArray.concat(cardsArray).forEach((item) => {
+                const card = document.createElement(&#39;div&#39;);
+                card.className = &#39;card&#39;;
+                card.dataset.name = item.name;
+                card.style.backgroundImage = `url(${item.img})`;
+                card.style.backgroundSize = &#39;cover&#39;;
+                gameBoard.appendChild(card);
+            });
         }
-        // More game functions will be defined here
+
+        function checkForMatch() {
+            // Add logic for matching cards
+        }
+
+        createBoard();
     </script>
 </body>
 </html>
