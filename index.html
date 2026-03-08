@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Matching Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #game-board { display: grid; grid-template-columns: repeat(4, 100px); gap: 10px; }
+        .card { width: 100px; height: 100px; background-color: lightgray; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; }
+        .hidden { background-color: lightblue; }
+        #score { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Memory Matching Game</h1>
+    <div id="game-board">
+        <!-- Game cards will go here -->
+    </div>
+    <div id="score">Score: <span id="score-value">0</span></div>
+    <div id="difficulty">
+        <button onclick="setDifficulty('easy')">Easy</button>
+        <button onclick="setDifficulty('medium')">Medium</button>
+        <button onclick="setDifficulty('hard')">Hard</button>
+    </div>
+    <script>
+        // Game logic goes here
+        let score = 0;
+        function setDifficulty(level) {
+            console.log('Difficulty set to', level);
+            // Logic to set the game difficulty
+        }
+        // More game functions will be defined here
+    </script>
+</body>
+</html>
